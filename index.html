@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Դավիթի ծննդյան հրավիրատոմս ⚽</title>
+<style>
+:root{--g1:#22a553;--g2:#1b8f45;--ink:#0f2e1a;--card:#fffdf5;--gold:#ffc83d;--red:#e63946;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*{box-sizing:border-box}
+body{margin:0;height:100%;overflow:hidden;background:#0a1530;font-family:"Noto Sans Armenian","Segoe UI",Arial,sans-serif;color:var(--ink)}
+#app{position:relative;width:100%;height:100%;overflow:hidden;background:linear-gradient(#081330,#14407a 40%)}
+#stage{position:absolute;left:50%;top:50%;height:min(100%,133.3vw);aspect-ratio:3/4;transform:translate(-50%,-50%);transform-origin:75% 55%}
+.play #stage{animation:cam 3.8s 2.7s ease-in-out}
+@keyframes cam{0%{transform:translate(-50%,-50%) scale(1)}35%{transform:translate(-50%,-50%) scale(1.2)}41%{transform:translate(-51%,-50%) scale(1.2)}44%{transform:translate(-49%,-51%) scale(1.2)}47%{transform:translate(-50.6%,-49.5%) scale(1.2)}50%{transform:translate(-50%,-50%) scale(1.2)}100%{transform:translate(-50%,-50%) scale(1)}}
+.fl{position:absolute;top:-25%;width:70%;height:60%;background:radial-gradient(circle,rgba(255,255,225,.6),transparent 65%);animation:glow 3s ease-in-out infinite alternate}
+@keyframes glow{to{opacity:.65}}
+.wide{position:absolute;left:-150vw;width:400vw}
+.crowd{top:27%;height:11%;background:radial-gradient(circle,#e63946 0 24%,transparent 26%) 0 0/14px 10px,radial-gradient(circle,#ffc83d 0 24%,transparent 26%) 7px 5px/14px 10px,radial-gradient(circle,#4aa3ff 0 24%,transparent 26%) 3px 8px/21px 12px,#0a1530;opacity:.9}
+.crowd:after{content:"";position:absolute;inset:0;background:radial-gradient(circle,#fff 0 2px,transparent 3px) 0 0/97px 37px,radial-gradient(circle,#fff 0 2px,transparent 3px) 31px 17px/131px 49px;animation:tw .6s steps(2) infinite}
+@keyframes tw{50%{opacity:.1}}
+.board{top:38%;height:2.2%;background:repeating-linear-gradient(90deg,#e63946 0 90px,#fff 90px 180px,#1d3fa8 180px 270px)}
+.pitch{top:40.2%;height:200vh;background:linear-gradient(rgba(0,0,0,.4),transparent 25%),repeating-linear-gradient(#24ab57 0 44px,#1b8f45 44px 88px)}
+.ln{position:absolute;background:rgba(255,255,255,.75)}
+.box{position:absolute;left:44%;width:70%;top:57.5%;height:20%;border:3px solid rgba(255,255,255,.75);border-top:0}
+
+#goal{position:absolute;left:52%;top:40%;width:44%;aspect-ratio:220/130}
+#goal svg{width:100%;height:100%;overflow:visible}
+#net{transform-origin:110px 10px;transform-box:view-box}
+.play #net{animation:ripple 1.1s 4.05s ease-out}
+@keyframes ripple{0%{transform:scale(1)}20%{transform:scale(1.08,1.12)}45%{transform:scale(.96,.94)}70%{transform:scale(1.02)}100%{transform:scale(1)}}
+#keeper{position:absolute;left:66%;top:45%;width:11%;transform-origin:50% 80%}
+#keeper svg{width:100%;display:block}
+.play #keeper{animation:dive .9s 2.55s ease-out forwards}
+@keyframes dive{to{transform:translate(-150%,18%) rotate(-82deg)}}
+
+#boy{position:absolute;left:4%;top:60%;width:30%;animation:boyIn .8s ease-out both}
+#boy svg{width:100%;height:auto;overflow:visible;display:block}
+#leg{transform-origin:62px 112px;transform-box:view-box}
+#armL{transform-origin:22px 62px;transform-box:view-box}
+#armR{transform-origin:88px 62px;transform-box:view-box}
+.play #leg{animation:kick 1.2s 1.5s ease-in-out both}
+.play #boy{animation:boyIn .8s ease-out both,hop 1.2s 1.5s ease-in-out,cheer .45s 4.1s ease-in-out 6 alternate}
+.play #armL{animation:armUp .4s 4.1s ease-out forwards}
+.play #armR{animation:armUpR .4s 4.1s ease-out forwards}
+@keyframes boyIn{from{transform:translateX(-140%)}to{transform:none}}
+@keyframes kick{0%{transform:rotate(0)}55%{transform:rotate(52deg)}72%{transform:rotate(-58deg)}100%{transform:rotate(-8deg)}}
+@keyframes hop{0%,100%{transform:translateY(0)}72%{transform:translateY(-2%)}}
+@keyframes cheer{to{transform:translateY(-6%)}}
+@keyframes armUp{to{transform:rotate(150deg)}}
+@keyframes armUpR{to{transform:rotate(-150deg)}}
+
+.b{position:absolute;left:26%;top:93%;width:7%;aspect-ratio:1;transform:translate(-50%,-50%);z-index:3}
+.b svg{width:100%;height:100%;display:block}
+.tr{background:#fff;border-radius:50%;filter:blur(2px);z-index:2;opacity:var(--o)}
+.play #ball{animation:fly 2.3s 2.35s linear both,zoom 1.6s 6.5s ease-in forwards}
+.play #ball svg{animation:spin 2.3s 2.35s linear both}
+.play .tr{animation:fly 2.3s calc(2.35s + var(--d)) linear forwards,fadeT .3s 4.8s forwards}
+@keyframes fadeT{to{opacity:0}}
+@keyframes fly{
+0%{left:26%;top:93%;transform:translate(-50%,-50%) scale(1)}
+30%{left:44%;top:56%;transform:translate(-50%,-50%) scale(.85)}
+55%{left:72%;top:43%;transform:translate(-50%,-50%) scale(.7)}
+72%{left:85%;top:48%;transform:translate(-50%,-50%) scale(.62)}
+85%{left:87%;top:52%;transform:translate(-50%,-50%) scale(.6)}
+92%{left:85%;top:56%;transform:translate(-50%,-50%) scale(.6)}
+100%{left:84%;top:55%;transform:translate(-50%,-50%) scale(.6)}}
+@keyframes zoom{
+0%{left:84%;top:55%;transform:translate(-50%,-50%) scale(.6);opacity:1}
+40%{left:72%;top:64%;transform:translate(-50%,-50%) scale(3);opacity:1}
+88%{left:50%;top:50%;transform:translate(-50%,-50%) scale(70);opacity:1}
+100%{left:50%;top:50%;transform:translate(-50%,-50%) scale(80);opacity:0}}
+@keyframes spin{to{transform:rotate(1100deg)}}
+
+#hint{position:absolute;top:10%;left:0;right:0;text-align:center;color:#fff;letter-spacing:.2em;font-weight:800;font-size:clamp(14px,4vw,22px);animation:pulse 1s infinite alternate}
+.play #hint{animation:out .5s 2.2s forwards}
+@keyframes pulse{to{opacity:.5}}
+@keyframes out{to{opacity:0}}
+#score{position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);left:50%;transform:translate(-50%,-250%);display:flex;align-items:center;gap:10px;background:#0b1a3d;border:2px solid var(--gold);border-radius:12px;padding:8px 16px;color:#fff;font-weight:800;font-size:clamp(14px,4vw,20px);white-space:nowrap;z-index:5}
+#score b{background:var(--gold);color:#0b1a3d;border-radius:8px;padding:2px 10px;font-size:1.2em}
+.play #score{animation:sIn .6s 4.2s cubic-bezier(.2,1.2,.4,1) forwards,sOut .4s 6.4s forwards}
+@keyframes sIn{to{transform:translate(-50%,0)}}
+@keyframes sOut{to{transform:translate(-50%,-250%)}}
+#banner{position:absolute;left:-10%;right:-10%;top:30%;height:19%;transform:translateX(-120%) skewX(-14deg);background:linear-gradient(90deg,var(--red),#ff6b3d);border-block:5px solid var(--gold);display:flex;align-items:center;justify-content:center;z-index:5;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+#banner span{transform:skewX(14deg);font-weight:900;font-size:clamp(44px,16vw,90px);color:#fff;text-shadow:0 5px 0 rgba(0,0,0,.3);letter-spacing:.05em}
+.play #banner{animation:bIn .5s 4.1s cubic-bezier(.2,1,.3,1) forwards,bOut .45s 6.2s ease-in forwards}
+@keyframes bIn{to{transform:translateX(0) skewX(-14deg)}}
+@keyframes bOut{to{transform:translateX(130%) skewX(-14deg)}}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:6}
+.play #flash{animation:flash .8s 8s ease-out both}
+@keyframes flash{0%{opacity:1}100%{opacity:0}}
+
+#wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:12px;pointer-events:none;z-index:7}
+#card{position:relative;width:min(94vw,460px);max-height:100%;overflow-y:auto;overflow-x:hidden;background:var(--card);border-radius:22px;padding:24px 20px 22px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5);border:5px solid var(--gold);opacity:0;transform:scale(.3) rotate(-8deg);pointer-events:auto}
+.play #card{animation:cardIn 1s 8.1s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes cardIn{to{opacity:1;transform:none}}
+.tag{display:inline-block;background:var(--red);color:#fff;font-weight:800;letter-spacing:.12em;font-size:13px;padding:5px 14px;border-radius:99px}
+h1{margin:12px 0 2px;font-size:clamp(34px,10vw,46px);line-height:1.05;color:var(--g2)}
+h2{margin:22px 0 10px;font-size:18px;color:var(--g2);display:flex;align-items:center;gap:8px;justify-content:center}
+h2:before,h2:after{content:"";height:2px;width:30px;background:var(--gold)}
+.sub{font-size:18px;font-weight:700;margin:0 0 4px}
+.age{width:84px;height:84px;margin:10px auto;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:46px;font-weight:900;box-shadow:0 0 0 6px #fff,0 0 0 9px var(--g1);animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px) rotate(4deg)}}
+.msg{font-size:16px;line-height:1.5;margin:8px 0 14px}
+.info{display:grid;gap:8px;text-align:left}
+.row{display:flex;gap:12px;align-items:center;background:#eef8f0;border-radius:14px;padding:10px 14px}
+.row b{display:block;font-size:12px;color:#4a6b55;letter-spacing:.06em}
+.row .i{font-size:24px}
+.row div{font-size:16px;font-weight:700}
+.tl{list-style:none;margin:0;padding:0 0 0 18px;text-align:left;border-left:3px solid var(--g1)}
+.tl li{position:relative;padding:6px 0 12px 16px;font-weight:700;font-size:15px}
+.tl li:before{content:"";position:absolute;left:-27px;top:9px;width:14px;height:14px;border-radius:50%;background:var(--gold);border:3px solid var(--g1)}
+.tl time{display:inline-block;min-width:54px;color:var(--red);font-weight:900}
+.map{border-radius:16px;overflow:hidden;border:2px solid #cfe6d4;background:#e9f2e5}
+.map svg{display:block;width:100%;height:auto}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pl 1.6s ease-out infinite}
+@keyframes pl{from{transform:scale(.4);opacity:.8}to{transform:scale(2.4);opacity:0}}
+.btn{display:inline-block;border:0;background:var(--g1);color:#fff;font:inherit;font-weight:800;padding:11px 20px;border-radius:99px;cursor:pointer;text-decoration:none;margin-top:10px}
+.btn.alt{background:#fff;color:var(--red);box-shadow:inset 0 0 0 2px var(--red)}
+.rsvp{display:grid;gap:10px;text-align:left}
+.rsvp input,.rsvp select{font:inherit;padding:11px 14px;border-radius:12px;border:2px solid #cfe6d4;background:#fff;color:var(--ink);width:100%}
+.rsvp .two{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.small{font-size:12px;color:#4a6b55;text-align:center;margin:6px 0 0}
+.conf{position:absolute;top:-6%;font-size:20px;pointer-events:none;z-index:8;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(115vh) rotate(720deg)}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important}}
+</style>
+</head>
+<body>
+<div id="app">
+ <div id="stage">
+  <div class="fl" style="left:-20%"></div><div class="fl" style="left:50%"></div>
+  <div class="wide crowd"></div><div class="wide board"></div><div class="wide pitch"></div>
+  <div class="ln wide" style="top:57.5%;height:3px"></div><div class="box"></div>
+
+  <div id="goal"><svg viewBox="0 0 220 130" aria-hidden="true">
+   <defs><pattern id="n" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 0H12M0 0V12" stroke="#fff" stroke-opacity=".6" stroke-width="1.2" fill="none"/></pattern></defs>
+   <g id="net"><polygon points="6,124 6,6 214,6 214,124 190,104 190,24 30,24 30,104" fill="rgba(0,0,0,.2)"/>
+    <rect x="30" y="24" width="160" height="80" fill="url(#n)"/><polygon points="6,6 214,6 190,24 30,24" fill="url(#n)"/>
+    <polygon points="6,6 30,24 30,104 6,124" fill="url(#n)"/><polygon points="214,6 190,24 190,104 214,124" fill="url(#n)"/></g>
+   <path d="M6 124V6H214V124" fill="none" stroke="#fff" stroke-width="7" stroke-linejoin="round"/></svg></div>
+
+  <div id="keeper"><svg viewBox="0 0 60 100" aria-hidden="true">
+   <rect x="16" y="64" width="12" height="32" rx="5" fill="#222"/><rect x="32" y="64" width="12" height="32" rx="5" fill="#222"/>
+   <rect x="12" y="28" width="36" height="40" rx="10" fill="#ff8a1f"/>
+   <rect x="0" y="20" width="14" height="30" rx="7" fill="#ff8a1f" transform="rotate(25 7 26)"/><circle cx="2" cy="19" r="7" fill="#fff"/>
+   <rect x="46" y="20" width="14" height="30" rx="7" fill="#ff8a1f" transform="rotate(-25 53 26)"/><circle cx="58" cy="19" r="7" fill="#fff"/>
+   <circle cx="30" cy="16" r="12" fill="#f2c9a0"/><path d="M18 14c0-10 8-12 12-12s12 2 12 12c-5-5-8-6-12-6s-7 1-12 6z" fill="#222"/>
+   <circle cx="26" cy="18" r="1.8" fill="#222"/><circle cx="34" cy="18" r="1.8" fill="#222"/></svg></div>
+
+  <div id="boy"><svg viewBox="0 0 120 200" aria-hidden="true">
+   <ellipse cx="55" cy="196" rx="38" ry="5" fill="rgba(0,0,0,.3)"/>
+   <rect x="38" y="112" width="16" height="70" rx="7" fill="#f2c9a0"/><rect x="36" y="162" width="20" height="26" rx="8" fill="#fff"/><rect x="36" y="170" width="20" height="5" fill="#e63946"/><ellipse cx="42" cy="190" rx="15" ry="7" fill="#222"/>
+   <g id="leg"><rect x="55" y="108" width="16" height="72" rx="7" fill="#f2c9a0"/><rect x="53" y="158" width="20" height="26" rx="8" fill="#fff"/><rect x="53" y="166" width="20" height="5" fill="#e63946"/><ellipse cx="70" cy="188" rx="15" ry="7" fill="#222"/></g>
+   <rect x="32" y="96" width="46" height="26" rx="8" fill="#1d3fa8"/>
+   <g id="armL"><rect x="14" y="58" width="16" height="42" rx="8" fill="#e63946"/><circle cx="22" cy="102" r="8" fill="#f2c9a0"/></g>
+   <g id="armR"><rect x="80" y="58" width="16" height="42" rx="8" fill="#e63946"/><circle cx="88" cy="102" r="8" fill="#f2c9a0"/></g>
+   <rect x="28" y="52" width="54" height="56" rx="14" fill="#e63946"/><rect x="28" y="52" width="54" height="10" rx="5" fill="#fff" opacity=".25"/>
+   <text x="55" y="92" text-anchor="middle" font-size="26" font-weight="900" fill="#fff" font-family="Arial">8</text>
+   <circle cx="55" cy="32" r="24" fill="#f2c9a0"/><path d="M31 30c0-18 12-24 26-24s24 8 24 24c-8-10-16-12-25-12s-17 4-25 12z" fill="#3b2314"/>
+   <circle cx="46" cy="34" r="2.6" fill="#222"/><circle cx="64" cy="34" r="2.6" fill="#222"/><path d="M46 43q9 8 18 0" stroke="#222" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg></div>
+
+  <div class="b tr" style="--d:.1s;--o:.25"></div><div class="b tr" style="--d:.05s;--o:.4"></div>
+  <div class="b" id="ball"><svg viewBox="0 0 100 100"><g><circle cx="50" cy="50" r="47" fill="#fff" stroke="#111" stroke-width="4"/><polygon points="50,30 69,44 62,66 38,66 31,44" fill="#111"/><path d="M50 30V5M69 44l24-8M62 66l14 20M38 66L24 86M31 44L7 36" stroke="#111" stroke-width="4" fill="none"/></g></svg></div>
+ </div>
+
+ <div id="hint">ՍԿՍՎՈՒՄ Է ԽԱՂԸ…</div>
+ <div id="score">ԴԱՎԻԹ <b>1 : 0</b> ԸՆԿԵՐՆԵՐ</div>
+ <div id="banner"><span>ԳՈՈՈՈԼ!</span></div>
+ <div id="flash"></div>
+
+ <div id="wrap"><div id="card">
+  <span class="tag">ՀՐԱՎԻՐՈՒՄ</span>
+  <h1>Դավիթի ծնունդ</h1>
+  <p class="sub">⚽ Ֆուտբոլային տոն ⚽</p>
+  <div class="age">8</div>
+  <p class="msg">Սիրելի ընկեր, քեզ սպասում ենք մեր թիմում։ Գոլեր, խաղեր, տորթ և շատ ուրախություն։ Առանց քեզ խաղը չի կայանա։</p>
+  <div class="info">
+   <div class="row"><span class="i">📅</span><div><b>ԱՄՍԱԹԻՎ</b>Շաբաթ, 24 հոկտեմբերի</div></div>
+   <div class="row"><span class="i">⏰</span><div><b>ԺԱՄ</b>15։00</div></div>
+   <div class="row"><span class="i">📍</span><div><b>ՏԵՂԸ</b>«Գոլ» մինի-ֆուտբոլի դաշտ, Երևան</div></div>
+   <div class="row"><span class="i">👕</span><div><b>ՀԱԳՈՒՍՏ</b>Սպորտային, բերիր լավ տրամադրություն</div></div>
+  </div>
+
+  <h2>⏱ Ժամանակացույց</h2>
+  <ol class="tl">
+   <li><time>14:45</time> Հյուրերի ընդունելություն</li>
+   <li><time>15:00</time> Բացման խաղ, երկու թիմ</li>
+   <li><time>16:00</time> Հարվածների մրցույթ և մրցանակներ</li>
+   <li><time>16:45</time> 🎂 Տորթ և մաղթանքներ</li>
+   <li><time>17:30</time> Լուսանկար և հրաժեշտ</li>
+  </ol>
+
+  <h2>🗺 Քարտեզ</h2>
+  <div class="map"><svg viewBox="0 0 300 170" aria-label="Քարտեզ">
+   <rect width="300" height="170" fill="#e9f2e5"/>
+   <rect x="196" y="14" width="86" height="56" rx="8" fill="#cfe9c8"/><rect x="18" y="104" width="70" height="50" rx="8" fill="#cfe9c8"/>
+   <g fill="#dcd8d0"><rect x="20" y="16" width="52" height="34"/><rect x="82" y="16" width="44" height="34"/><rect x="20" y="60" width="52" height="30"/><rect x="200" y="100" width="36" height="52"/><rect x="246" y="100" width="40" height="52"/><rect x="100" y="106" width="60" height="46"/></g>
+   <g stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round"><path d="M0 92H300"/><path d="M146 0V170"/><path d="M0 150L300 20" stroke-width="6"/></g>
+   <path d="M0 92H300M146 0V170" stroke="#f3c969" stroke-width="2" stroke-dasharray="8 8" fill="none"/>
+   <rect x="164" y="54" width="52" height="30" rx="4" fill="#22a553" stroke="#fff" stroke-width="3"/><path d="M190 54V84" stroke="#fff" stroke-width="2"/><circle cx="190" cy="69" r="6" fill="none" stroke="#fff" stroke-width="2"/>
+   <circle class="pulse" cx="190" cy="48" r="10" fill="#e63946"/>
+   <path d="M190 62c-10-12-14-18-14-24a14 14 0 1128 0c0 6-4 12-14 24z" fill="#e63946" stroke="#fff" stroke-width="2.5"/><circle cx="190" cy="38" r="5" fill="#fff"/>
+   <text x="190" y="104" text-anchor="middle" font-size="11" font-weight="800" fill="#0f2e1a" font-family="Arial">«Գոլ» դաշտ</text></svg></div>
+  <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Yerevan+mini+football+field">📍 Բացել քարտեզում</a>
+
+  <h2>💌 Հաստատիր մասնակցությունը</h2>
+  <div class="rsvp">
+   <input id="nm" placeholder="Քո անունը" autocomplete="name">
+   <select id="cnt"><option value="1">1 հոգի</option><option value="2">2 հոգի</option><option value="3">3 հոգի</option><option value="4">4 հոգի</option></select>
+   <div class="two"><a class="btn" id="yes" target="_blank" rel="noopener" href="#">✅ Կգամ</a><a class="btn alt" id="no" target="_blank" rel="noopener" href="#">😢 Չեմ կարող</a></div>
+   <p class="small">Պատասխանը կուղարկվի WhatsApp-ով՝ +374 77 000 000 համարին։ Մինչև 20 հոկտեմբերի։</p>
+  </div>
+  <button class="btn" id="again" type="button" style="background:#555">↻ Կրկին դիտել</button>
+ </div></div>
+</div>
+<script>
+(function(){
+  var app=document.getElementById('app'),t=[],icons=['⚽','🎉','⭐','🏆','🎈'],PH='37477000000';
+  function confetti(n){for(var i=0;i<n;i++){var c=document.createElement('div');c.className='conf';c.textContent=icons[i%5];c.style.left=Math.random()*100+'%';c.style.fontSize=(14+Math.random()*16)+'px';c.style.animationDuration=(2.5+Math.random()*2.5)+'s';c.style.animationDelay=(Math.random()*1.2)+'s';app.appendChild(c);}}
+  function play(){t.forEach(clearTimeout);t=[];app.classList.remove('play');[].slice.call(app.querySelectorAll('.conf')).forEach(function(n){n.remove()});void app.offsetWidth;app.classList.add('play');t.push(setTimeout(function(){confetti(24)},4100));t.push(setTimeout(function(){confetti(50)},8200));}
+  var nm=document.getElementById('nm'),cnt=document.getElementById('cnt'),y=document.getElementById('yes'),n=document.getElementById('no');
+  function upd(){var who=nm.value.trim()||'Ես';
+    y.href='https://wa.me/'+PH+'?text='+encodeURIComponent('Բարև։ '+who+' ('+cnt.value+' հոգի) կգանք Դավիթի ծնունդին՝ 24 հոկտեմբերի, 15:00 ⚽');
+    n.href='https://wa.me/'+PH+'?text='+encodeURIComponent('Բարև։ '+who+' չի կարողանա գալ Դավիթի ծնունդին։ Շնորհավորում ենք ու հաջողություն 🎉');}
+  nm.addEventListener('input',upd);cnt.addEventListener('change',upd);upd();
+  document.getElementById('again').addEventListener('click',play);
+  setTimeout(play,500);
+})();
+</script>
+</body>
+</html>
